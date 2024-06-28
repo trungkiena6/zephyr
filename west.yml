@@ -157,7 +157,7 @@ manifest:
       groups:
         - hal
     - name: hal_espressif
-      revision: bc176f9ee4907e9dc667445b2e49c11d7745387a
+      revision: f7c0770e0294de4ccd86b0d164265caad120a1c7
       path: modules/hal/espressif
       url: https://github.com/trungkiena6/hal_espressif.git
       west-commands: west/west-commands.yml
