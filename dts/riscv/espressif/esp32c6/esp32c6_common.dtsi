@@ -16,6 +16,7 @@
 
 	chosen {
 		zephyr,flash-controller = &flash;
+		zephyr,entropy = &trng0;
 	};
 
 	cpus {
@@ -25,7 +26,7 @@
 		cpu0: cpu@0 {
 			device_type = "cpu";
 			compatible = "espressif,riscv";
-			riscv,isa = "rv32imac_zicsr";
+			riscv,isa = "rv32imac_zicsr_zifencei";
 			reg = <0>;
 			clock-source = <ESP32_CPU_CLK_SRC_PLL>;
 			clock-frequency = <DT_FREQ_M(160)>;
@@ -79,6 +80,12 @@
 			#clock-cells = <1>;
 			status = "okay";
 
+		};
+
+		trng0: trng@3ff700b0 {
+			compatible = "espressif,esp32-trng";
+			reg = <0x3FF700B0 0x4>;
+			status = "okay";
 		};
 
 		rtc_timer: rtc_timer@600b0c00 {

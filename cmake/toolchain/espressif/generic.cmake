@@ -14,6 +14,7 @@ file(GLOB toolchain_paths
   LIST_DIRECTORIES true
   ${TOOLCHAIN_HOME}/*-esp32*/*-elf
   ${TOOLCHAIN_HOME}/*-esp*/*-elf
+  ${TOOLCHAIN_HOME}/riscv32*/*-elf
   )
 
 # Old toolchain installation path has been deprecated in 2.7.

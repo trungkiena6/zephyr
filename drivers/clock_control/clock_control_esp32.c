@@ -129,6 +129,8 @@ static void esp32_clock_perip_init(void)
 		REG_CLR_BIT(PCR_PVT_MONITOR_FUNC_CLK_CONF_REG, PCR_PVT_MONITOR_FUNC_CLK_EN);
 		WRITE_PERI_REG(PCR_CTRL_CLK_OUT_EN_REG, 0);
 	}
+
+	periph_module_enable(PERIPH_TIMG0_MODULE);
 }
 #else
 static void esp32_clock_perip_init(void)

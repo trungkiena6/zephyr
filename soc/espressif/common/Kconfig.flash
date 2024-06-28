@@ -3,9 +3,20 @@
 
 if SOC_FAMILY_ESPRESSIF_ESP32
 
+config MMU_PAGE_SIZE_32KB
+	bool
+	default y if SOC_SERIES_ESP32C6
+	default n
+
+config MMU_PAGE_SIZE_64KB
+	bool
+	default y if !MMU_PAGE_SIZE_32KB
+	default n if SOC_SERIES_ESP32C6
+
 config MMU_PAGE_SIZE
 	hex
-	default 0x10000
+	default 0x8000 if MMU_PAGE_SIZE_32KB
+	default 0x10000 if MMU_PAGE_SIZE_64KB
 
 config SPI_FLASH_VENDOR_MXIC_SUPPORTED
 	bool

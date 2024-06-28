@@ -128,6 +128,7 @@ SECTIONS
     . = ALIGN(4);
     *(.rtc.literal .rtc.text)
     *rtc_wake_stub*.o(.literal .text .literal.* .text.*)
+    _rtc_text_end = ABSOLUTE(.);
   } GROUP_DATA_LINK_IN(rtc_iram_seg, ROMABLE_REGION)
 
   /* This section is required to skip rtc.text area because the text and
