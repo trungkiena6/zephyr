@@ -5,13 +5,11 @@ if SOC_FAMILY_ESPRESSIF_ESP32
 
 config MMU_PAGE_SIZE_32KB
 	bool
-	default y if SOC_SERIES_ESP32C6
 	default n
 
 config MMU_PAGE_SIZE_64KB
 	bool
-	default y if !MMU_PAGE_SIZE_32KB
-	default n if SOC_SERIES_ESP32C6
+	default y
 
 config MMU_PAGE_SIZE
 	hex
